@@ -8,11 +8,18 @@
 	<body>
 		
 		<?php
+		$name = $_POST["name"];
+		$check = $_POST["cs"];
+		$ID = $_POST["id"];
+		$grade = $_POST["grade"];
+		$credit = $_POST["card"];
+		$card = $_POST["cc"];
 		# Ex 4 : 
 		# Check the existance of each parameter using the PHP function 'isset'.
 		# Check the blankness of an element in $_POST by comparing it to the empty string.
 		# (can also use the element itself as a Boolean test!)
-		# if (){
+		 if (isset($name,$check,$ID,$credit) == false){
+		//echo isset($name,$check,$ID,$grade,$credit).".////";
 		?>
 
 		<!-- Ex 4 : 
@@ -20,11 +27,17 @@
 			<h1>Sorry</h1>
 			<p>You didn't fill out the form completely. Try again?</p>
 		--> 
+		<h1>Sorry</h1>
+		<p>You didn't fill out the form completely. Try again?</p>
 
 		<?php
+		
 		# Ex 5 : 
 		# Check if the name is composed of alphabets, dash(-), ora single white space.
-		# } elseif () { 
+		
+		} elseif (preg_match("/^[a-zA-Z]+(-[a-zA-Z]+){0,}[ ]?[a-zA-Z]+([-]{1}[a-zA-Z]+){0,}$/i", $name)== false) { 
+			//* 써도된다 중간에 스페이스나 대시 하나만나온다 /
+			//^[a-zA-Z]+[\- ]?[a-zA-Z]+$
 		?>
 
 		<!-- Ex 5 : 
@@ -32,12 +45,15 @@
 			<h1>Sorry</h1>
 			<p>You didn't provide a valid name. Try again?</p>
 		--> 
-
+			<h1>Sorry</h1>
+			<p>You didn't provide a valid name. Try again?</p>
 		<?php
+		
 		# Ex 5 : 
 		# Check if the credit card number is composed of exactly 16 digits.
 		# Check if the Visa card starts with 4 and MasterCard starts with 5. 
-		# } elseif () {
+		
+		} elseif (strlen($_POST['card']) != 16 || ($_POST['cc'] == "visa" && $_POST['card'][0] != 4) || ($_POST['cc'] == "mastercard" && $_POST['card'][0] != 5)) {
 		?>
 
 		<!-- Ex 5 : 
@@ -45,10 +61,12 @@
 			<h1>Sorry</h1>
 			<p>You didn't provide a valid credit card number. Try again?</p>
 		--> 
-
+		<h1>Sorry</h1>
+		<p>You didn't provide a valid credit card number. Try again?</p>
 		<?php
+		
 		# if all the validation and check are passed 
-		# } else {
+		} else {
 		?>
 
 		<h1>Thanks, looser!</h1>
@@ -56,17 +74,18 @@
 		
 		<!-- Ex 2: display submitted data -->
 		<?php
-			//$check[] = $_GET["cs"];
-			$check = $_POST["cs"];
+			//var_dump($check);
+			$test = processCheckbox($check);
+			
 		?>
 		<ul> 
-			<li>Name: <?= $_POST["name"]?></li>
-			<li>ID: <?=$_POST["id"]?></li>
+			<li>Name: <?= $name?></li>
+			<li>ID: <?=$ID?></li>
 			<!-- use the 'processCheckbox' function to display selected courses -->
 		
-			<li>Course: <?=$check[0]?><?=$check[1]?><?=$check[2]?><?=$check[3]?></li>
-			<li>Grade: <?=$_POST["grade"]?></li>
-			<li>Credit <?=$_POST["card"]?>(<?=$_POST["cc"]?>)</li>
+			<li>Course: <?=$test?></li>
+			<li>Grade: <?=$grade?></li>
+			<li>Credit <?=$credit?>(<?=$_POST["cc"]?>)</li>
 		</ul>
 		
 		<!-- Ex 3 : 
@@ -78,9 +97,8 @@
 			 * Save the submitted data to the file 'loosers.txt' in the format of : "name;id;cardnumber;cardtype".
 			 * For example, "Scott Lee;20110115238;4300523877775238;visa"
 			 */
-			$fh = fopen($filename, 'a');
-			fwrite($fh, $_POST["name"].";".$_POST["id"].";".$_POST["card"].";".$_POST["cc"]."\n");
-			fclose($fh);
+			//fwrite($fh, $_POST["name"].";".$_POST["id"].";".$_POST["card"].";".$_POST["cc"]."\r\n");
+			file_put_contents($filename, $_POST["name"].";".$_POST["id"].";".$_POST["card"].";".$_POST["cc"]."\r\n" , FILE_APPEND);
 
 
 		?>
@@ -91,11 +109,17 @@
 
 		
 		<?php
-			print_r(file_get_contents($filename)."\n"); 
-		# }
+			$loosers = nl2br(file_get_contents($filename)); 
+
+		 }
 		?>
+		<br>
+			<?=$loosers?>
 		
-		<?php
+		
+	</body>
+</html>
+<?php
 			/* Ex 2: 
 			 * Assume that the argument to this function is array of names for the checkboxes ("cse326", "cse107", "cse603", "cin870")
 			 * 
@@ -103,8 +127,9 @@
 			 * collects all the selected checkboxes into a single string with comma seperation.
 			 * For example, "cse326, cse603, cin870"
 			 */
-			function processCheckbox($names){ }
-		?>
+			
 		
-	</body>
-</html>
+		function processCheckbox($names){
+				return implode(",", $names);
+			 }
+		?>
