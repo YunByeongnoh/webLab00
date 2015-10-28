@@ -1,0 +1,92 @@
+cracking the cording interview
+책찾아보기
+
+/Applications/MAMP/Library/bin/mysql --host=localhost -uroot -proot
+
+explain table name  테이블 정보보기
+
+
+1.
+CREATE TABLE student(
+student_id INTEGER(10) NOT NULL  PRIMARY KEY,
+name CHAR(10) NOT NULL, 
+year TINYINT(1) NOT NULL default '1',
+dept_no INTEGER(10) unsigned NOT NULL,
+major VARCHAR(20));
+
+CREATE TABLE department(
+dept_no INTEGER(10) unsigned  auto_increment default “1” PRIMARY KEY,
+dept_name VARCHAR(20) NOT NULL UNIQUE , 
+office VARCHAR(20) NOT NULL,
+office_tel VARCHAR(13));
+
+
+ALTER TABLE student ADD(gender varchar(10));
+ALTER TABLE student change column major major CHAR(40);
+
+
+alter table department change column dept_name dept_name varchar(40) NOT NULL UNIQUE;
+alter table department change column office office varchar(30) NOT NULL;
+
+alter table student drop column gender;
+
+2.
+ insert into student values 	(20070002, 'James Bond', 3, 4, 'Business Administration'),(20060001, 'Queenie', 4, 4, 'Business Administration’),  (20030001, 'Reonardo', 4, 2, 'Electronic Engineering') ,(20040003, 'Julia', 3, 2, 'Electronic Engineering’),  (20060002, 'Roosevelt', 3, 1, 'Computer Science') ,(20100002, 'Fearne', 3, 4, 'Business Administration') , (20110001, 'Chloe', 2, 1, 'Computer Science’), (20080003, 'Amy', 4, 3, 'Law') , (20040002, 'Selina', 4, 5, 'English Literature’), (20070001, 'Ellen', 4, 4, 'Business Administration') , (20100001, 'Kathy', 3, 4, 'Business Administration') ,(20110002, 'Lucy', 2, 2, 'Electronic Engineering') , (20030002, 'Michelle', 5, 1, 'Computer Science’), (20070003, 'April', 4, 3, 'Law') , (20070005, 'Alicia', 2, 5, 'English Literature’), (20100003, 'Yullia', 3, 1, 'Computer Science') , (20070007, 'Ashlee', 2, 4, 'Business Administration’);
+
+
+insert into department values (1,'Computer Science', 'Engineering building', '02-3290-0123')  , (2,’Electronic Engineering', 'Engineering building', '02-3290-2345') ,(3,'Law', 'Law building', '02-3290-7896') ,(4,'Business Administration', 'Administration building', '02-3290-1112') ,(5,'English Literature', 'Literature building', '02-3290-4412’);
+
+3.
+update department SET dept_name =  "Electronic and Electrical Engineering" where dept_name = "Electronic Engineering";
+
+insert into department values (6,”Education”,”Education Building”,02-3290-2347);
+
+update student SET major = “Education”,  where name = “Chloe”;
+ update student SET dept_no = 6  where name = "Chloe";
+
+delete from student where name = “Michelle”;
+
+delete from student where name = “Fearne”;
+
+4.
+select * from student where major = “Computer Science”;
+
+select student_id,year,major from student;
+
+select * from student where year = 3;
+
+select * from student where year = 1 or year = 2;
+
+
+select * from student natural join department where dept_no = 4;
+
+5.
+select * from student where student_id Like "2007%";
+
+select * from student order by student_id;
+
+select major, avg(year) from student group by major having avg(year) > 3;
+
+select * from student where major = "Business Administration" and student_id Like "2007%" Limit 2;
+
+6.
+select * from countries c join languages l On c.code = l.country_code where independence_year = 1948;
+
+select * from countries c join languages l ON c.code = l.country_code where language = "English" or language = "French";
+
+select count(c.language) d, c.language from (select a.name, b.language from countries a join languages b where a.code =b.country_code  and a.life_expectancy > 75) c group by c.language order by d desc limit 5;
+
+
+select capital from countries c join languages l ON c.code = l.country_code where official = "T" and percentage >20 and percentage <50;
+
+select sum(surface_area) from countries c join cities city On c.code = city.country_code where (select distinct avg(population) from cities) Limit 5;
+
+7.
+
+select role from movies join roles ON id = movie_id where name = "Pi";
+
+select * from actors a join roles r ON a.id = r.actor_id where (select count(actor_id) from roles)  limit 7; — 잘모르겟다
+
+
+
+
