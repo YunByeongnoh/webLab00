@@ -51,6 +51,7 @@ window.onload = function () {
                  document.getElementById('result').innerHTML = displayVal;     
             }
             else{
+                alert(stack);
                 if(displayVal.charAt(displayVal.length-1) == value)
                 {
                 }

@@ -15,7 +15,7 @@
                     <input type="text" placeholder="Search" name = "search">
                     <select name = "select">
                         <option>Author</option>
-                        <option>Content</option>
+                        <option>Contents</option>
                     </select>
                 </form>
             </div>
@@ -81,7 +81,7 @@
                      $list = new TimeLine();
                      $rows;
                     if (!empty($hash)){                    
-                        $rows = $list->searchTweets("Content",$hash);
+                        $rows = $list->searchTweets("Contents",$hash);
                         
                     }
                     else{
@@ -100,7 +100,7 @@
                             <span><?=$row[3]?></span>
                         </div>
                         <div class="tweet-content">
-                            <?=$row[2]?>
+                            <?=$row["contents"]?>
                         </div>
 
                      </div>
