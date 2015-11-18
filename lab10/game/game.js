@@ -6,7 +6,6 @@ var numberOfTarget = 3;
 var targetBlocks = [];
 var selectedBlocks = [];
 var timer;
-var check = 0;
 var num_try = 0;
 document.observe('dom:loaded', function(){
 	$("start").observe("click",stopToStart);
@@ -43,13 +42,11 @@ function startToSetTarget(){
 		blocks[targetBlocks[i]].removeClassName("target");
 	}
 	var block_number =[0,1,2,3,4,5,6,7,8];
-	
 	for (var i = 0; i < 8; i++) { //중복되지 않는 난수
 		var rand = Math.floor(Math.random() * 8)
 		var temp = block_number[i];
 		block_number[i] = block_number[rand];
 		block_number[rand] = temp;
-
 	};
 	for (var i = 0; i < 3; i++) {
 		targetBlocks.push(block_number[i]);
@@ -90,7 +87,6 @@ function showToSelect(){
 	clearInterval(timer);
 	timer = null;
 	$("state").textContent = "Select!";
-	
 	var blocks = $$(".block");
 	for (var i = 0; i < 9; i++) {//타겟 블록외에 다른 블록 지정할 수도 있으니 전체 해제
 		blocks[i].removeClassName("target");
@@ -116,7 +112,7 @@ function selectToResult(){
 		blocks[i].removeClassName("selected");
 		blocks[i].stopObserving("click");
 	}
-	
+	var check = 0;
 	for (var i = 0; i < 3; i++) {
 		for (var j = 0; j < 3; j++) {
 			if (targetBlocks[i] == selectedBlocks[j]) {
@@ -124,8 +120,10 @@ function selectToResult(){
 			}
 		}
 	}
+	var answer = ($("answer").innerHTML).split("/");
+	console.log(answer[0] + "eee"+ check);
 	num_try +=numberOfTarget;
-	$("answer").textContent = check + "/" + num_try;
+	$("answer").textContent = (parseInt(answer[0]) + check) + "/" + num_try;
 	if (timer == null) {
 		timer = setTimeout(startToSetTarget, 3000); 
 	} 
