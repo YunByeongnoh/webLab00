@@ -1,67 +1,68 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="author" content="author">
-    <link rel="stylesheet" href="index.css">
-</head>
-<body>
+  <head>
+      <meta charset="utf-8">
+      <meta name="author" content="author">
+      <link rel="stylesheet" href="index.css">
+      <title>Welcome to TITLE</title>
+  </head>
+  <body>
     <header>
         <?php
             $logon;
             if ($logon == NULL){
         ?>
         <div>
-            <div><a href = "login.php">Log in</a></div>                
-            <div>Home</div>
+            <div><a href = "login.php">Log in</a></div>
+            <div><a href = "index.php">Home</a></div>
         </div>
         <?php
             }
             else{
         ?>
          <div>
-            <div><a><?=$logon?>님 환영합니다</a></div>  
-            <div><a herf = "index.php">Logout</a></div>              
-            <div>Home</div>
+            <div><a><?=$logon?>님 환영합니다</a></div>
+            <div><a herf = "index.php">Log out</a></div>
+            <div><a href = "index.php">Home</a></div>
         </div>
         <?php
             }
         ?>
-    <div>
     </header>
+
+    <div>
+
         <!-- title -->
-        <div>
         <div id="title">
           TITLEEEEEEEEE
         </div>
 
-                <!-- navigation bar -->
-                <nav>
-                    <div><a href="index.php">Home</a></div>
-                    <div><a href="tutorial.php">Tutorial</a></div>
-                    <div><a href="example.php">Example</a></div>
-                    <div><a href="advanced.php">Advanced</a></div>
-                    <div><a href="board.php">Board</a></div>
-                </nav>
+        <!-- navigation bar -->
+        <nav>
+            <div><a href="index.php">Home</a></div>
+            <div><a href="tutorial.php">Tutorial</a></div>
+            <div><a href="example.php">Example</a></div>
+            <div><a href="advanced.php">Advanced</a></div>
+            <div><a href="board.php">Board</a></div>
+        </nav>
 
-                <!-- body -->
-            
-                <?
-                // 1. 공통 인클루드 파일
-                include ("./include.php");
-                ?>
-                
-        </div>
-        <h1>회원가입 페이지</h1>
-        <form name="signup_form" method="post" action="add.php" >
-            ID(4~20 Character): <input type="text" name="user_id" /><br />
-            PW(4~20 Character): <input type="password" name="user_pass"/><br />
-            Retype Confirm : <input type="password" name="user_pass2" /><br />
-            Email Address : <input type="email" name="user_email" /><br />
-            <input type="submit" herf value="회원가입" />
-        </form>  
+        <!-- body -->
+        <article>
+          <div id="content">
+            <h1>회원가입 페이지</h1>
+            <form name="signup_form" method="post" action="add.php" >
+                ID(4~20 Character): <input type="text" name="user_id" /><br />
+                PW(4~20 Character): <input type="password" name="user_pass"/><br />
+                Retype Confirm : <input type="password" name="user_pass2" /><br />
+                Email Address : <input type="email" name="user_email" /><br />
+                <input type="submit" herf value="회원가입" />
+            </form>
+          </div>
+        </article>
 
-        <!-- footer -->
+  </div>
+
+    <!-- footer -->
     <footer>
         <div>
             <a href="http://jigsaw.w3.org/css-validator/check/referer"><img src="img/w3c-css.png" alt="Valid CSS" /></a>

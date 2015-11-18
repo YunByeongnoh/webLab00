@@ -1,11 +1,6 @@
-/* Chanyeong Lee, 2011036856 */
-html {
-  height: 90%;
-}
 body {
   font-family: Brown, verdana, sans-serif;
   text-align: center;
-  height: 100%;
   margin: 0px;
   padding: 0px;
 }
@@ -19,7 +14,19 @@ a {
 a:hover {
   color: #1CACE2;
 }
-
+#content {
+  min-height: 607px;
+}
+footer {
+  background-color: yellow;
+  overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+footer div {
+  margin-top: 4px;
+  float: right
+}
 #title {
   background-color: blue;
   color: white;
@@ -62,12 +69,6 @@ nav div {
   padding-right: 2%;
   width: 15%;
 }
-body div {
-}
-
-#content {
-  line-height: 100%;
-}
 aside {
   background-color: black;
   color: white;
@@ -84,16 +85,6 @@ article {
   margin-top: 10px;
   overflow: scroll;
   max-height: 900px;
-}
-footer {
-  background-color: yellow;
-  overflow: hidden;
-  padding-top: 5px;
-  padding-bottom: 10px;
-}
-footer div {
-  margin-top: 4px;
-  float: right
 }
 #tabletitle {
   width: 1000px;
@@ -115,4 +106,55 @@ footer div {
 }
 .boardcontent {
   height:30px;
+}
+#mainbar {
+  width: 900px;
+  margin: 0 auto;
+}
+.subheader {
+  border-bottom: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+#h-top-questions {
+   font-size:20px;
+   float: left;
+   margin: 26px 0 0 0;
+}
+#tabs {
+  font-weight: 400;
+  border-bottom-color: #fff;
+  width: 680px;
+  float: right;
+  margin-top: 30px;
+}
+.subheader>#tabs>a:hover{
+  border: 1px solid #e0e0e0;
+  border-top: 2px solid #f69c55;
+  border-bottom-color: white;
+}
+#mainbar > div:not(div.subheader) {
+  overflow: hidden;
+}
+.hidden {
+  overflow: hidden;
+}
+.votes, .status, .views {
+   float: left;
+   padding: 10px;
+   margin-top: 20px;
+}
+.summary, .tags {
+   float: left;
+}
+.started {
+  float: right;
+}
+.hidden > div:not(div.summary) {
+  height: 100px;
+  float: left;
+  margin-left: 20px;
+  margin-right: 40px;
+}
+.post-tag {
+  background-color: blue;
 }

@@ -1,5 +1,3 @@
-<!-- Chanyeong Lee, 2011036856 -->
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,39 +6,41 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <header>
-        <?php
-            $setid = $_POST["bringID"];
-           
-            if ($setid == NULL){
-        ?>
-        <div>
-            <div><a href = "login.php">Log in</a></div>                
-            <div>Home</div>
-        </div>
-        <?php
-            }
-            else{
-        ?>
-         <div>
-            <div><a><?=$setid?>님 환영합니다</a></div>  
-            <form id = "myForm"  method = "post" action = "login.php">
-                <div>
-                    <input type="hidden"  name = "logout" value = "on" >
-                   
-                    <a onclick="document.getElementById('myForm').submit()">Logout</a>
-                </div>
-                
-            </form>             
-            <div>Home</div>
-        </div>
-        <?php
-            }
-        ?>
-    </header>
+      <header>
+      <?php
+          $setid = $_POST["bringID"];
 
-        <!-- title -->
+          if ($setid == NULL){
+      ?>
+      <div>
+          <div><a href = "login.php">Log in</a></div>
+          <div><a href = "index.php">Home</a></div>
+      </div>
+      <?php
+          }
+          else{
+      ?>
+       <div>
+          <div><a><?=$setid?>님 환영합니다</a></div>
+          <form id = "myForm"  method = "post" action = "login.php">
+              <div>
+                  <input type="hidden"  name = "logout" value = "on" >
+
+                  <a onclick="document.getElementById('myForm').submit()">Log out</a>
+              </div>
+
+          </form>
+          <div><a href = "index.php">Home</a></div>
+      </div>
+      <?php
+          }
+      ?>
+  </header>
+
+
         <div>
+
+            <!-- title -->
             <div id="title">
               TITLEEEEEEEEE
             </div>
@@ -60,6 +60,7 @@
                   WELCOMEMMEMEMEEM
                 </div>
             </article>
+
         </div>
 
         <!-- footer -->

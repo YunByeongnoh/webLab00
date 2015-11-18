@@ -1,5 +1,3 @@
-<!-- Chanyeong Lee, 2011036856 -->
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,41 +6,41 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
-        <header>
+      <header>
         <?php
-            $setid = $_POST["bringID"];
-            print($setid."ddd?");
-            $logon = "ng2111";
-            $getid;
-            $getpw;
-            if ($logon == NULL){
+            $setid = $_POST["bringID"];            
+           
+            if ($setid == NULL){
         ?>
         <div>
-            <div><a href = "login.php">Log in</a></div>                
-            <div>Home</div>
+            <div><a href = "login.php">Log in</a></div>
+            <div><a href = "index.php">Home</a></div>
         </div>
         <?php
             }
             else{
         ?>
          <div>
-            <div><a><?=$logon?>님 환영합니다</a></div>  
+            <div><a><?=$setid?>님 환영합니다</a></div>
             <form id = "myForm"  method = "post" action = "login.php">
                 <div>
                     <input type="hidden"  name = "logout" value = "on" >
-                   
-                    <a onclick="document.getElementById('myForm').submit()">Logout</a>
+
+                    <a onclick="document.getElementById('myForm').submit()">Log out</a>
                 </div>
-                
-            </form>             
-            <div>Home</div>
+
+            </form>
+            <div><a href = "index.php">Home</a></div>
         </div>
         <?php
             }
         ?>
-    </header>
-        <!-- title -->
+      </header>
+
+
         <div>
+
+            <!-- title -->
             <div id="title">
               TITLEEEEEEEEE
             </div>
@@ -82,349 +80,11 @@
 
             <!-- body -->
             <article>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-right"></i>
-                    </div>
-                    <div>
-                        <span>1</span>
-                        <span>Last Week : 1</span>
-                    </div>
-                    <div>
-                        <img src="img/theweeknd.jpg" alt="album image" />
-                        <p>
-                            <span>The Hills</span>
-                            <span>The Weeknd</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-right"></i>
-                    </div>
-                    <div>
-                        <span>1</span>
-                        <span>Last Week : 1</span>
-                    </div>
-                    <div>
-                        <img src="img/theweeknd.jpg" alt="album image" />
-                        <p>
-                            <span>The Hills</span>
-                            <span>The Weeknd</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-right"></i>
-                    </div>
-                    <div>
-                        <span>1</span>
-                        <span>Last Week : 1</span>
-                    </div>
-                    <div>
-                        <img src="img/theweeknd.jpg" alt="album image" />
-                        <p>
-                            <span>The Hills</span>
-                            <span>The Weeknd</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-right"></i>
-                    </div>
-                    <div>
-                        <span>1</span>
-                        <span>Last Week : 1</span>
-                    </div>
-                    <div>
-                        <img src="img/theweeknd.jpg" alt="album image" />
-                        <p>
-                            <span>The Hills</span>
-                            <span>The Weeknd</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-right"></i>
-                    </div>
-                    <div>
-                        <span>1</span>
-                        <span>Last Week : 1</span>
-                    </div>
-                    <div>
-                        <img src="img/theweeknd.jpg" alt="album image" />
-                        <p>
-                            <span>The Hills</span>
-                            <span>The Weeknd</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-right"></i>
-                    </div>
-                    <div>
-                        <span>1</span>
-                        <span>Last Week : 1</span>
-                    </div>
-                    <div>
-                        <img src="img/theweeknd.jpg" alt="album image" />
-                        <p>
-                            <span>The Hills</span>
-                            <span>The Weeknd</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-right"></i>
-                    </div>
-                    <div>
-                        <span>1</span>
-                        <span>Last Week : 1</span>
-                    </div>
-                    <div>
-                        <img src="img/theweeknd.jpg" alt="album image" />
-                        <p>
-                            <span>The Hills</span>
-                            <span>The Weeknd</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-right"></i>
-                    </div>
-                    <div>
-                        <span>1</span>
-                        <span>Last Week : 1</span>
-                    </div>
-                    <div>
-                        <img src="img/theweeknd.jpg" alt="album image" />
-                        <p>
-                            <span>The Hills</span>
-                            <span>The Weeknd</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-right"></i>
-                    </div>
-                    <div>
-                        <span>1</span>
-                        <span>Last Week : 1</span>
-                    </div>
-                    <div>
-                        <img src="img/theweeknd.jpg" alt="album image" />
-                        <p>
-                            <span>The Hills</span>
-                            <span>The Weeknd</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-right"></i>
-                    </div>
-                    <div>
-                        <span>2</span>
-                        <span>Last Week : 2</span>
-                    </div>
-                    <div>
-                        <img src="img/bieber.jpg" alt="album image" />
-                        <p>
-                            <span>What Do You Mean?</span>
-                            <span>Justine Bieber</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-right"></i>
-                    </div>
-                    <div>
-                        <span>3</span>
-                        <span>Last Week : 3</span>
-                    </div>
-                    <div>
-                        <img src="img/theweeknd.jpg" alt="album image" />
-                        <p>
-                            <span>Can't Feel My Face</span>
-                            <span>The Weeknd</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-up"></i>
-                    </div>
-                    <div>
-                        <span>4</span>
-                        <span>Last Week : 9</span>
-                    </div>
-                    <div>
-                        <img src="img/drake.jpg" alt="album image" />
-                        <p>
-                            <span>Hotline Bling</span>
-                            <span>Drake</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-down"></i>
-                    </div>
-                    <div>
-                        <span>5</span>
-                        <span>Last Week : 4</span>
-                    </div>
-                    <div>
-                        <img src="img/silento.jpg" alt="album image" />
-                        <p>
-                            <span>Watch Me</span>
-                            <span>Silento</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-up"></i>
-                    </div>
-                    <div>
-                        <span>6</span>
-                        <span>Last Week : 7</span>
-                    </div>
-                    <div>
-                        <img src="img/fetty.jpg" alt="album image" />
-                        <p>
-                            <span>679</span>
-                            <span>Fetty Wrap Featuring Remy Boyz</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-down"></i>
-                    </div>
-                    <div>
-                        <span>7</span>
-                        <span>Last Week : 6</span>
-                    </div>
-                    <div>
-                        <img src="img/rcity.jpg" alt="album image" />
-                        <p>
-                            <span>Locked Away</span>
-                            <span>R. City Featuring Adam Levien</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-down"></i>
-                    </div>
-                    <div>
-                        <span>8</span>
-                        <span>Last Week : 5</span>
-                    </div>
-                    <div>
-                        <img src="img/selena.jpg" alt="album image" />
-                        <p>
-                            <span>Good For You</span>
-                            <span>Selena Gomez Featuring A$AP Rocky</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-down"></i>
-                    </div>
-                    <div>
-                        <span>9</span>
-                        <span>Last Week : 8</span>
-                    </div>
-                    <div>
-                        <img src="img/omi.jpg" alt="album image" />
-                        <p>
-                            <span>Cheerleader</span>
-                            <span>OMI</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
-                </div>
-                <div class="main_chart">
-                    <div>
-                        <i class="fa fa-arrow-up"></i>
-                    </div>
-                    <div>
-                        <span>10</span>
-                        <span>Last Week : 13</span>
-                    </div>
-                    <div>
-                        <img src="img/taylor.jpg" alt="album image" />
-                        <p>
-                            <span>Wildest Dreams</span>
-                            <span>Taylor Swift</span>
-                        </p>
-                    </div>
-                    <div>
-                        <i class="fa fa-play"></i>
-                    </div>
+                <div id="content">
+                  content
                 </div>
             </article>
+
         </div>
 
         <!-- footer -->

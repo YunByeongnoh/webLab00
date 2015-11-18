@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Simple Timeline</title>
+        <title>Welcome to TITLE</title>
         <link rel="stylesheet" href="timeline.css">
     </head>
     <body>

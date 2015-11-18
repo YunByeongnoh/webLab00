@@ -1,105 +1,101 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<meta name="author" content="author">
-	<link rel="stylesheet" href="index.css">
-</head>
-<body>
-	<header>
-		<?php
+	<head>
+		<meta charset="utf-8">
+		<meta name="author" content="author">
+		<link rel="stylesheet" href="index.css">
+		<title>Welcome to TITLE</title>
+	</head>
+	<body>
+		<header>
+			<div>
+				<div><a href = "login.php">Log in</a></div>
+				<div><a href = "index.php">Home</a></div>
+			</div>
+		</header>
 
-		?>
 		<div>
-			<div><a href = "login.php">Log in</a></div>                
-			<div>Home</div>
-		</div>
-	</header>
-	<!-- title -->
-	<div>
-		<div id="title">
-			TITLEEEEEEEEE
-		</div>
 
-		<!-- navigation bar -->
-		<nav>
-			<div><a href="index.php">Home</a></div>
-			<div><a href="tutorial.php">Tutorial</a></div>
-			<div><a href="example.php">Example</a></div>
-			<div><a href="advanced.php">Advanced</a></div>
-			<div><a href="board.php">Board</a></div>
-		</nav>
-
-		<!-- body -->
-
-		<?
-				// 1. 공통 인클루드 파일
-		include ("./include.php");
-		?>
-		<?php
-		$switch;
-		$logout = $_POST["logout"];
-		$getid = $_POST["login"];
-		$getpw = $_POST["password"];
-		include ("query.php");
-		$query = new Webquery();
-		$result = $query->searchID($getid,$getpw);
-		if ($result == 0 ) {
-			$switch = 1;
-		}
-		else{
-			$switch = 0;
-		}
-		$setid = $_POST["login"];
-
-		if ($switch == 1 || $logout == "on"){
-			?>
-		</div>
-		<section class="container">
-			<div class="login">
-				<h1>Login to This Page</h1>
-				<form id = "loginform" method="post" action="login.php" >
-					<p>ID :	<input type="text" name="login" value="" placeholder="Username or Email"></p>
-					<p>PW : <input type="password" name="password" value="" placeholder="Password"></p>
-					<p class="submit"><input type="submit" name="commit" value="Login"></p>        
-				</form>
+			<!-- title -->
+			<div id="title">
+				TITLEEEEEEEEE
 			</div>
 
-			<p>회원이 아니신가요?  <button><a href="MKID.php">회원가입</a></button></p>
-		</section>
+			<!-- navigation bar -->
+			<nav>
+				<div><a href="index.php">Home</a></div>
+				<div><a href="tutorial.php">Tutorial</a></div>
+				<div><a href="example.php">Example</a></div>
+				<div><a href="advanced.php">Advanced</a></div>
+				<div><a href="board.php">Board</a></div>
+			</nav>
 
-		<?php
-		
+			<!-- body -->
+			<article>
+				<div id="content">
+					<?php
+					$switch;
+					$logout = $_POST["logout"];
+					print_r($logout."///");
+					$getid = $_POST["login"];
+					$getpw = $_POST["password"];
+					include ("query.php");
+					$query = new Webquery();
+					$result = $query->searchID($getid,$getpw);
+					print_r($result);
+					if ($result == 0 ) {
+						$switch = 1;
+					}
+					else{
+						$switch = 0;
+					}
+					$setid = $_POST["login"];
 
+					if ($result == 0 || $logout == "on"){
+						?>
 
+					<section class="container">
+						<div class="login">
+							<h1>Login to This Page</h1>
+							<form id = "loginform" method="post" action="login.php" >
+								<p>ID :	<input type="text" name="login" value="" placeholder="Username or Email"></p>
+								<p>PW : <input type="password" name="password" value="" placeholder="Password"></p>
+								<p class="submit"><input type="submit" name="commit" value="Login"></p>
+							</form>
+						</div>
 
+						<p>회원이 아니신가요?  <button><a href="MKID.php">회원가입</a></button></p>
+					</section>
 
-		if($result == 0){
-			?>
-			<p>아이디 또는 비밀번호를 잘못 입력하셧습니다</p>
-			<?php
-		}
-			?>
-			<?php
-				#echo "<meta http-equiv='refresh' content='0; url=index.php'>"; 
-			?>
-			<?php
-		}else{
-			?>
-			<p>로그인 되었습니다</p>
-			<form  method = "post" action = "index.php">
-				<div>
-					<input type="hidden"  name = "bringID" value = <?=$getid?> >
+					<?php
+					if($result == 0){
+						?>
+						<p>아이디 또는 비밀번호를 잘못 입력하셧습니다</p>
+						<?php
+					}
+					?>
+					<?php
+						#echo "<meta http-equiv='refresh' content='0; url=index.php'>";
+					?>
+					<?php
+					} else {
+					?>
+					<p>로그인 되었습니다</p>
+					<form  method = "post" action = "index.php">
+						<div>
+							<input type="hidden"  name = "bringID" value = <?=$getid?> >
+						</div>
+						<input type="submit" value="게시판으로">
+					</form>
+
+					<?php
+					}
+
+					?>
 				</div>
-				<input type="submit" value="게시판으로">
-			</form>
+			</article>
 
-			<?php
-		}
-
-		?>
-
-
+		</div>
 
 		<!-- footer -->
 		<footer>
@@ -109,4 +105,4 @@
 			</div>
 		</footer>
 	</body>
-	</html>
+</html>
