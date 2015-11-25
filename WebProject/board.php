@@ -1,3 +1,5 @@
+<?session_start();?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -8,35 +10,37 @@
 	</head>
 	<body>
 		<header>
-        <?php
-            $setid = $_POST["bringID"];            
-           
-            if ($setid == NULL){
-        ?>
-        <div>
-            <div><a href = "login.php">Log in</a></div>
-            <div><a href = "index.php">Home</a></div>
-        </div>
-        <?php
-            }
-            else{
-        ?>
-         <div>
-            <div><a><?=$setid?>님 환영합니다</a></div>
-            <form id = "myForm"  method = "post" action = "login.php">
-                <div>
-                    <input type="hidden"  name = "logout" value = "on" >
+      <?php
+          
+          $user_id = $_SESSION['user_id'];
+         
+          if ($user_id == NULL){
+      ?>
+      <div>
+          <div><a href = "login.php">Log in</a></div>
+          <div><a href = "index.php">Home</a></div>
+      </div>
+      <?php
+          }
+          else{
+      ?>
+       <div>
 
-                    <a onclick="document.getElementById('myForm').submit()">Log out</a>
-                </div>
+          <div><a><?=$user_id?>님 환영합니다</a></div>
+          <form id = "myForm"  method = "post" action = "login.php">
+              <div>
+                  <input type="hidden"  name = "logout" value = "on" >
 
-            </form>
-            <div><a href = "index.php">Home</a></div>
-        </div>
-        <?php
-            }
-        ?>
-    </header>
+                  <a onclick="document.getElementById('myForm').submit()">Log out</a>
+              </div>
+
+          </form>
+          <div><a href = "index.php">Home</a></div>
+      </div>
+      <?php
+          }
+      ?>
+  </header>
 
 		<div>
 

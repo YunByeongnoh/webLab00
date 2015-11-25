@@ -25,12 +25,12 @@
         public function searchID($ID, $PW) // This function load tweets meeting conditions
         {
             //Fill out here
-            $userid = $this->db->prepare("SELECT PW FROM user WHERE ID = :ID");
-            $userid->execute(array('ID'=>$ID));
+            $userid = $this->db->prepare("SELECT ID FROM user WHERE PW = :PW");
+            $userid->execute(array('PW'=>$PW));
             $userid = $userid->fetchAll();
 
-            if (!strcmp($PW,$userid[0][0])){
-                return 1;
+            if (!strcmp($ID,$userid[0][0])){
+                return $ID;
             }
             else{
                 return 0;

@@ -1,0 +1,160 @@
+body {
+  font-family: Brown, verdana, sans-serif;
+  text-align: center;
+  margin: 0px;
+  padding: 0px;
+}
+a:visited {
+  color: inherit;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  color: #1CACE2;
+}
+#content {
+  min-height: 607px;
+}
+footer {
+  background-color: yellow;
+  overflow: hidden;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+footer div {
+  margin-top: 4px;
+  float: right
+}
+#title {
+  background-color: blue;
+  color: white;
+  height: 100px;
+  line-height: 100px;
+}
+header {
+  font-size: 15px;
+}
+header div {
+  overflow: hidden;
+  background-color: rgb(150, 150, 150);
+}
+header div div {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  padding-right: 30px;
+  float: right;
+}
+header div div:first-child {
+  color: #FF6567;
+}
+
+header div div:hover {
+  color: #1CACE2;
+  cursor: pointer;
+}
+
+nav {
+  background-color: yellow;
+  overflow: hidden;
+  padding-left: 4%;
+  font-size: 10.5pt;
+}
+nav div {
+  float: left;
+  padding-top: 0.65em;
+  padding-bottom: 0.65em;
+  padding-left: 2%;
+  padding-right: 2%;
+  width: 15%;
+}
+aside {
+  background-color: black;
+  color: white;
+  padding-top: 10px;
+  float: left;
+  width: 25%;
+  text-align: left;
+  font-size: 10.5pt;
+}
+aside div {
+  height: 45px;
+}
+article {
+  margin-top: 10px;
+  overflow: scroll;
+  max-height: 900px;
+}
+#tabletitle {
+  width: 1000px;
+  height: 50px;
+  border: 5px #CCCCCC solid;
+}
+#tabletitle td {
+  font-size: 15px;
+  font-weight: bold;
+}
+#board {
+  width: 1000px;
+  height: 50px;
+  border: 0px;
+}
+.boardtitle {
+  height: 30px;
+  background-color: #CCCCCC;
+}
+.boardcontent {
+  height:30px;
+}
+#mainbar {
+  width: 900px;
+  margin: 0 auto;
+}
+.subheader {
+  border-bottom: 1px solid #e0e0e0;
+  overflow: hidden;
+}
+#h-top-questions {
+   font-size:20px;
+   float: left;
+   margin: 26px 0 0 0;
+}
+#tabs {
+  font-weight: 400;
+  border-bottom-color: #fff;
+  width: 680px;
+  float: right;
+  margin-top: 30px;
+}
+.subheader>#tabs>a:hover{
+  border: 1px solid #e0e0e0;
+  border-top: 2px solid #f69c55;
+  border-bottom-color: white;
+}
+#mainbar > div:not(div.subheader) {
+  overflow: hidden;
+}
+.hidden {
+  overflow: hidden;
+}
+.votes, .status, .views {
+   float: left;
+   padding: 10px;
+   margin-top: 20px;
+}
+.summary, .tags {
+   float: left;
+}
+.started {
+  float: right;
+}
+.hidden > div:not(div.summary) {
+  height: 100px;
+  float: left;
+  margin-left: 20px;
+  margin-right: 40px;
+}
+.post-tag {
+  background-color: blue;
+}

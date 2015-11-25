@@ -1,0 +1,24 @@
+create table user(
+ID varchar(20)  primary key, 
+PW varchar(20) not null,
+Email varchar(20) not null
+);
+
+create table board(
+	BoardID int primary key,
+	AnswersNum int not null,
+	Title varchar(100) not null,
+	Time datetime not null,
+	UserID varchar(20), 
+	HashTag varchar(100),
+	Text longtext not null,
+	AnswersID int,
+	FOREIGN KEY('UserID') REFERENCES user ('ID') ON DELETE CASCADE
+);
+
+create table answer(
+	AnswersID int primary key,
+	UserID varchar(20) not null,
+	AnswerText longtext not null,
+	FOREIGN KEY(`UserID`) REFERENCES user ('ID') ON DELETE CASCADE
+);
