@@ -17,114 +17,114 @@ window.onload = function () {
                     end_flag = 0;
                 }
                 if (displayVal == "0") {
-                     displayVal = value;
+                   displayVal = value;
+               }
+               else{
+                displayVal = displayVal+value;
+            }
+            document.getElementById('result').innerHTML = displayVal; 
+        }else if (value =="AC") {
+            displayVal = "0";
+            stack = [];
+            fact_flag = 0;
+            high_flag = 0;
+            document.getElementById('result').innerHTML = displayVal;
+            document.getElementById('expression').innerHTML = displayVal;
+        }
+        else if (value =='.') {
+            
+            if(displayVal.charAt(displayVal.length-1) =='.')
+            {
+            }
+            else{
+               displayVal = displayVal+'.';
+           }
+           
+           document.getElementById('result').innerHTML = displayVal;
+       } 
+       else{   
+        if(displayVal.charAt(displayVal.length-1) == value)
+        {
+        }
+        if(stack[stackLength-1]=="*" || stack[stackLength-1]=="/" || stack[stackLength-1]=="^"){
+            high_flag = 1;
+            highPriorityCalculator(stack,displayVal);
+        }
+        
+        
+        if (value == '!'){
+            var fact;
+            if(displayVal.charAt(displayVal.length-1) =='!' )
+            {
+                fact_flag = 1;
+            }
+            else{
+                fact_flag = 1;
+                fact = factorial(parseFloat(displayVal));
+                displayVal = displayVal+'!';
+                stack.push(fact);  
+            }
+            
+        }
+        else {
+            if(high_flag == 1){
+                high_flag = 0;
+                if(document.getElementById('expression').innerHTML  == "0"){
+                    displayVal = displayVal+value;
+                    document.getElementById('expression').innerHTML = displayVal; 
                 }
                 else{
                     displayVal = displayVal+value;
+                    document.getElementById('expression').innerHTML += displayVal; 
+                    document.getElementById('result').innerHTML = "0";
                 }
-                document.getElementById('result').innerHTML = displayVal; 
-            }else if (value =="AC") {
-                displayVal = "0";
-                stack = [];
-                fact_flag = 0;
-                high_flag = 0;
-                document.getElementById('result').innerHTML = displayVal;
-                document.getElementById('expression').innerHTML = displayVal;
             }
-            else if (value =='.') {
-                
-                if(displayVal.charAt(displayVal.length-1) =='.')
-                {
+            else{
+                stack.push(parseFloat(displayVal));
+                if(document.getElementById('expression').innerHTML  == "0"){
+                    console.log("comein?");
+                    displayVal = displayVal+value;
+                    document.getElementById('expression').innerHTML = displayVal; 
                 }
                 else{
-                     displayVal = displayVal+'.';
+                    displayVal = displayVal+value;
+                    document.getElementById('expression').innerHTML += displayVal; 
+                    document.getElementById('result').innerHTML = "0";
                 }
-                
-                document.getElementById('result').innerHTML = displayVal;
-            } 
-            else{   
-                if(displayVal.charAt(displayVal.length-1) == value)
-                {
-                }
-                if(stack[stackLength-1]=="*" || stack[stackLength-1]=="/" || stack[stackLength-1]=="^"){
-                    high_flag = 1;
-                    highPriorityCalculator(stack,displayVal);
-                }
-               
-                
-                if (value == '!'){
-                    var fact;
-                    if(displayVal.charAt(displayVal.length-1) =='!' )
-                    {
-                        fact_flag = 1;
-                    }
-                    else{
-                        fact_flag = 1;
-                        fact = factorial(parseFloat(displayVal));
-                        displayVal = displayVal+'!';
-                        stack.push(fact);  
-                    }
-                        
-                }
-                else {
-                    if(high_flag == 1){
-                        high_flag = 0;
-                        if(document.getElementById('expression').innerHTML  == "0"){
-                            displayVal = displayVal+value;
-                            document.getElementById('expression').innerHTML = displayVal; 
-                        }
-                        else{
-                            displayVal = displayVal+value;
-                            document.getElementById('expression').innerHTML += displayVal; 
-                            document.getElementById('result').innerHTML = "0";
-                        }
-                    }
-                    else{
-                        stack.push(parseFloat(displayVal));
-                        if(document.getElementById('expression').innerHTML  == "0"){
-                            console.log("comein?");
-                            displayVal = displayVal+value;
-                            document.getElementById('expression').innerHTML = displayVal; 
-                        }
-                        else{
-                            displayVal = displayVal+value;
-                            document.getElementById('expression').innerHTML += displayVal; 
-                            document.getElementById('result').innerHTML = "0";
-                        }
-                    }
-                   
-                   
-                }
-                if(fact_flag == 1){
-                    fact_flag = 0;
-                }
-                else{
-                    if(high_flag == 1){
-                        high_flag = 0;
-                        stack.push(value);
-                        displayVal="0";
-                        document.getElementById('result').innerHTML = displayVal;
-                    }
-                    else{
-                        stack.push(value);
-                        displayVal="0";
-                        document.getElementById('result').innerHTML = displayVal;
-                    }
-                    
-                }
-               
-                if (value == '='){
-                    displayVal = calculator(stack);
-                    document.getElementById('result').innerHTML = displayVal;
-                    stack = [];
-                    fact_flag = 0;
-                    end_flag = 1;
-                    displayVal = 0;
-                }
-               
             }
+            
+            
         }
+        if(fact_flag == 1){
+            fact_flag = 0;
+        }
+        else{
+            if(high_flag == 1){
+                high_flag = 0;
+                stack.push(value);
+                displayVal="0";
+                document.getElementById('result').innerHTML = displayVal;
+            }
+            else{
+                stack.push(value);
+                displayVal="0";
+                document.getElementById('result').innerHTML = displayVal;
+            }
+            
+        }
+        
+        if (value == '='){
+            displayVal = calculator(stack);
+            document.getElementById('result').innerHTML = displayVal;
+            stack = [];
+            fact_flag = 0;
+            end_flag = 1;
+            displayVal = 0;
+        }
+        
     }
+}
+}
 
 }
 
